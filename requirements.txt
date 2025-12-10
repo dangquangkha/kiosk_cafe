@@ -1,0 +1,8 @@
+requests
+qrcode
+Pillow
+SpeechRecognition
+openai
+pygame
+python-dotenv
+customtkinter

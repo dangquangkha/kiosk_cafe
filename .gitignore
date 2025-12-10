@@ -1,0 +1,33 @@
+# --- Python cơ bản ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# --- Môi trường ảo (Virtual Environment) - QUAN TRỌNG ---
+# Trong ảnh bạn dùng .venv, nhưng tôi thêm các tên phổ biến khác
+.venv/
+venv/
+env/
+ENV/
+
+# --- Biến môi trường & Bảo mật - CỰC KỲ QUAN TRỌNG ---
+# File này chứa key bí mật, không bao giờ được đưa lên Git
+.env
+
+# --- File hệ thống & IDE (VS Code) ---
+.vscode/
+.idea/
+.DS_Store
+
+# --- File tạm thời của dự án Kiosk ---
+# Dựa trên ảnh, file này có vẻ là file tạm khi tạo giọng nói (TTS)
+temp_speech.mp3
+temp_*.mp3
+
+# Nếu file know_thuong.mp3 cũng là file tạo ra tự động mỗi lần chạy
+# thì bỏ dấu # ở dòng dưới. Nếu là file cố định thì giữ nguyên.
+# know_thuong.mp3
+
+# --- Logs (Nhật ký lỗi) ---
+*.log
