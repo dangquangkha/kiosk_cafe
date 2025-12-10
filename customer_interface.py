@@ -1028,17 +1028,39 @@ def main():
 
     # --- TẠO MÀN HÌNH CHỜ (IDLE FRAME) ---
     idle_frame = ctk.CTkFrame(content_wrapper, fg_color=APP_BG_COLOR)
+    
+    # 1. Chỉnh padding (khoảng cách lề) nhỏ lại để nội dung bên trong có chỗ phình to ra
     hero = ctk.CTkFrame(idle_frame, fg_color=CARD_BG_COLOR, border_color=HIGHLIGHT_COLOR, border_width=1, corner_radius=24)
-    hero.pack(padx=40, pady=80, fill="both", expand=True)
-    ctk.CTkLabel(hero, text="🤖", font=("Arial", 70), fg_color="transparent").pack(pady=(30, 10))
-    ctk.CTkLabel(hero, text="XIN CHÀO!", font=(FONT_FAMILY, 30, "bold"), text_color=ACCENT_COLOR).pack()
+    hero.pack(padx=20, pady=20, fill="both", expand=True) # Giảm padx/pady bên ngoài để khung to hơn
+
+    # Frame con để căn giữa mọi thứ theo chiều dọc
+    center_content = ctk.CTkFrame(hero, fg_color="transparent")
+    center_content.place(relx=0.5, rely=0.5, anchor="center")
+
+    # 2. Tăng kích thước Robot (Thay đổi số 70 thành 180 hoặc lớn hơn)
     ctk.CTkLabel(
-        hero,
+        center_content, 
+        text="🤖", 
+        font=("Arial", 180), # <--- Tăng ở đây (Cũ: 70 -> Mới: 180)
+        fg_color="transparent"
+    ).pack(pady=(0, 20))
+
+    # 3. Tăng kích thước chữ XIN CHÀO (Thay đổi số 30 thành 60)
+    ctk.CTkLabel(
+        center_content, 
+        text="XIN CHÀO!", 
+        font=(FONT_FAMILY, 60, "bold"), # <--- Tăng ở đây (Cũ: 30 -> Mới: 60)
+        text_color=ACCENT_COLOR
+    ).pack(pady=(0, 20))
+
+    # 4. Tăng kích thước chữ hướng dẫn (Thay đổi số 14 thành 24)
+    ctk.CTkLabel(
+        center_content,
         text="Robot đang sẵn sàng phục vụ.\nHãy chọn đồ uống để bắt đầu.",
-        font=(FONT_FAMILY, 14),
+        font=(FONT_FAMILY, 24), # <--- Tăng ở đây (Cũ: 14 -> Mới: 24)
         text_color=TEXT_SECONDARY,
         justify="center"
-    ).pack(pady=20)
+    ).pack()
 
     # ============================================================
     # KHỞI TẠO SẴN CÁC FRAME PHỤC VỤ
